@@ -112,10 +112,83 @@
 // longVowels("cheese");
 
 //10 Just the Positives
-function postiiveNumbers(num) {
-myNums = [1, -3, 5, -3, 0]
-positivNums = []
-for x in myNums:
-if (x >= 0); append
 
+function postiiveNumbers(array) {
+  positiveNums = [];
+  for (var x = 0; x < Array.length; x++);
+  {
+    if (array[x] > 0) {
+      positivNums.push(x);
+    }
+  }
+  return positiveNums;
 }
+console.log(postiiveNumbers[(1, -3, 5, -3, -2)]);
+
+// 11. Caesar #1
+function caeserCipher(message, shift) {
+  message = message.toLowerCase();
+  var array = message.split(" ");
+  var newArray = [];
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  if (shift > 25) {
+    shift = shift % 26;
+  }
+
+  for (var i = 0; i < array.length; i++) {
+    var word = [];
+    for (var j = 0; j < array[i].length; j++) {
+      var index = alphabet.indexOf(array[i][j]);
+      if (shift + index > 25) {
+        var letter = alphabet[index + shift - 26];
+      } else {
+        var letter = alphabet[index + shift];
+      }
+      word.push(letter);
+    }
+    newArray.push(word.join(""));
+  }
+  return newArray.join(" ");
+}
+
+console.log(
+  caeserCipher("Genius without education is like silver in the mine", 13)
+);
+console.log(
+  caeserCipher("Genius without education is like silver in the mine", 14)
+);
+
+// 12. Caesar #2
+function caeserDecipher(message, shift) {
+  message = message.toLowerCase();
+  var array = message.split(" ");
+  var newArray = [];
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  if (shift > 25) {
+    shift = shift % 26;
+  }
+
+  for (var i = 0; i < array.length; i++) {
+    var word = [];
+    for (var j = 0; j < array[i].length; j++) {
+      var index = alphabet.indexOf(array[i][j]);
+      if (shift > index) {
+        var letter = alphabet[index - shift + 26];
+      } else {
+        var letter = alphabet[index - shift];
+      }
+      word.push(letter);
+    }
+    newArray.push(word.join(""));
+  }
+  return newArray.join(" ");
+}
+
+console.log(
+  caeserDecipher("Travhf jvgubhg rqhpngvba vf yvxr fvyire va gur zvar", 13)
+);
+console.log(
+  caeserDecipher("usbwig kwhvcih sriqohwcb wg zwys gwzjsf wb hvs awbs", 14)
+);
