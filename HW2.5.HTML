@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .header {
+        background-color: blue;
+        color: white;
+        min-height: 200px;
+        text-align: left;
+        padding: 15px;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+      }
+
+      .space {
+        margin: 25px;
+      }
+
+      .review {
+        background-color: grey;
+        color: black;
+        min-height: 100px;
+        text-align: left;
+        padding: 10px;
+        margin: 25px;
+      }
+
+      .contentDiv {
+        background-color: white;
+        color: black;
+        min-height: 25px;
+        text-align: left;
+        padding: 5px;
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+
+      .commentDiv {
+        background-color: orange;
+        color: white;
+        min-height: 25px;
+        text-align: left;
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+
+      .productName {
+        color: blue;
+        font-weight: bolder;
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+
+    <script>
+      var headerDiv = document.createElement("div");
+      headerDiv.setAttribute("class", "header");
+      headerDiv.innerHTML =
+        "<h1 class=space>High On Coding</h1><h3 class=space>Home</h3><h3>Categories</h3>";
+      var containerDiv = document.querySelector(".container");
+      containerDiv.append(headerDiv);
+
+      var reviewDiv = document.createElement("div");
+      reviewDiv.setAttribute("class", "review");
+      reviewDiv.innerHTML =
+        "<h2>Curse of the Current Reviews</h2> <br> When you want to buy an application from the Apple iTunes store you have more choices than you can handle...";
+      var containerDiv = document.querySelector(".container");
+      containerDiv.append(reviewDiv);
+
+      var contentDiv = document.createElement("div");
+      contentDiv.setAttribute("class", "contentDiv");
+      contentDiv.innerHTML =
+        "<div class=productName>Hello WatchKit</div> <br> Last month Apple released the anticipated WatchKit Framework for developers in the form of iOs 8.2 beta SDK release. The ...";
+      var containerDiv = document.querySelector(".container");
+      containerDiv.append(contentDiv);
+
+      var commentDiv = document.createElement("div");
+      commentDiv.setAttribute("class", "commentDiv");
+      commentDiv.innerHTML = "12 comments       124 likes";
+      var containerDiv = document.querySelector(".container");
+      containerDiv.append(commentDiv);
+
+      var contentDiv = document.createElement("div");
+      contentDiv.setAttribute("class", "contentDiv");
+      contentDiv.innerHTML =
+        "<div class=productName>Introduction to Swift</div> <br> Swift is a modern programming language developed by Apple to create the next generation of iOS and OSX applications. Swift is a ...";
+      var containerDiv = document.querySelector(".container");
+      containerDiv.append(contentDiv);
+
+      var commentDiv = document.createElement("div");
+      commentDiv.setAttribute("class", "commentDiv");
+      commentDiv.innerHTML = "15 comments 45 likes";
+      var containerDiv = document.querySelector(".container");
+      containerDiv.append(commentDiv);
+    </script>
+  </body>
+</html>
