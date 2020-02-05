@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    .container {
+      background-color: grey;
+      width: 100vw;
+      height: 100vw;
+    }
+  </style>
+  <body>
+    <div class="jumbotron">
+      <h1 class="display-3">Cute-Puppy-Gram</h1>
+      <p class="lead">For all your pupperoni needs</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <img
+            onmouseover="mOver(this)"
+            onmouseout="mOff(this)"
+            width="300px"
+            height="300px"
+            src="https://random.dog/271575bd-83e0-4595-8a4e-a756eb14457a.gif"
+            alt=""
+          />
+        </div>
+        <div class="col-4">
+          <img
+            onmouseover="mOver(this)"
+            onmouseout="mOff(this)"
+            width="300px"
+            height="300px"
+            src="https://random.dog/2850c194-649c-42f0-8901-c77210eb2240.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col-4">
+          <img
+            width="300px"
+            height="300px"
+            src="https://random.dog/ecac798e-c8da-46a4-a6a2-d401ba8ba2f2.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <img
+            onmouseover="mOver(this)"
+            onmouseout="mOff(this)"
+            width="300px"
+            height="300px"
+            src="https://random.dog/df82edc3-3553-4293-bf6c-9afab83fe11a.gif"
+            alt=""
+          />
+        </div>
+        <div class="col-4">
+          <img
+            onmouseover="mOver(this)"
+            onmouseout="mOff(this)"
+            width="300px"
+            height="300px"
+            src="https://random.dog/ede1f022-4085-4b11-a6b2-21316d2b19cf.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col-4">
+          <img
+            onmouseover="mOver(this)"
+            onmouseout="mOff(this)"
+            height="300px"
+            width="300px"
+            src="https://random.dog/1f3fcc44-3b7c-4268-92a9-a6faa6f75547.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      function mOver(obj) {
+        obj.style.height = "600px";
+        obj.style.width = "600px";
+      }
+      function mOff(obj) {
+        obj.style.height = "300px";
+        obj.style.with = "300px";
+      }
+    </script>
+    <script>
+      src = "https://code.jquery.com/jquery-3.3.1.slim.min.js";
+      integrity =
+        "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo";
+      crossorigin = "anonymous";
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
