@@ -124,13 +124,23 @@ arr.sort(function(a, b) {
 console.log(arr);
 
 //10. 3 Times
+
+let fun = function() {
+  console.log("Hello world");
+};
 function call3Times(fun) {
   fun();
   fun();
   fun();
 }
 
-function fun() {
-  console.log(fun);
+call3Times(fun);
+
+// 13.
+acronym = ["Men", "In", "Black"];
+
+function Acro(array) {
+  let acc = array.map(element => element[0]).join("");
+  console.log(acc);
 }
-call3Times("Hello world!");
+Acro(acronym);
