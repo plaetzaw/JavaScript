@@ -86,3 +86,51 @@ function good(array) {
   }
 }
 good(people);
+
+//. 7 Sort an Array
+function sorted(array) {
+  let sorted = array.sort();
+  console.log(people);
+}
+sorted(people);
+
+//. 8 Sort an Array 2
+
+people.sort(function(a, b) {
+  return a.length - b.length;
+});
+console.log(people);
+
+//. 9 Sort an Array 3
+
+var arr = [
+  [1, 3, 4],
+  [3, 6],
+  [2, 4, 6, 8]
+];
+
+let sum = function(array) {
+  let result = 0;
+  for (i = 0; i < array.length; i++) {
+    result = result + array[i];
+  }
+  return result;
+};
+
+arr.sort(function(a, b) {
+  return sum(a) - sum(b);
+});
+
+console.log(arr);
+
+//10. 3 Times
+function call3Times(fun) {
+  fun();
+  fun();
+  fun();
+}
+
+function fun() {
+  console.log(fun);
+}
+call3Times("Hello world!");
