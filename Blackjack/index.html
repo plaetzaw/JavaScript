@@ -20,28 +20,23 @@
   </head>
   <body>
     <div class="board">
-      <div id="table">
-        <div id="messages"></div>
-        <label>Dealer: </label>
-        <div class="row"></div>
-        <div class="col-12 cardSlot"></div>
-        <label id="dealer-points" class="points"></label>
+      <div id="messages"></div>
+      <label>Dealer: </label>
+      <div class="row"></div>
+      <div id="dealer-hand" class="hand"></div>
+      <label id="dealer-points" class="points">Dealer Points: </label>
 
-        <div id="dealer-hand" class="hand"></div>
-        <label>Player: </label>
-        <div class="row"></div>
-        <div class="col-12 cardSlot"></div>
-        <label id="player-points" class="points"></label>
+      <label>Player: </label>
+      <div class="row"></div>
+      <div id="player-hand" class="hand"></div>
+      <label id="player-points" class="points">Player Points: </label>
 
-        <div id="player-hand" class="hand"></div>
+      <div class="buttons">
+        <button id="deal-button">Deal</button>
 
-        <div class="buttons">
-          <button id="deal-button">Deal</button>
+        <button id="hit-button">Hit</button>
 
-          <button id="hit-button">Hit</button>
-
-          <button id="stand-button">Stand</button>
-        </div>
+        <button id="stand-button">Stand</button>
       </div>
     </div>
     <!-- Optional JavaScript -->
