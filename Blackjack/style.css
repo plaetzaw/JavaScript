@@ -1,0 +1,14 @@
+.board {
+  background-color: aquamarine;
+  width: 1200px;
+  height: 500px;
+}
+
+.cardSlot {
+  background-color: blue;
+  width: 400px;
+  height: 75px;
+  position: relative;
+  align-content: center;
+  align-items: center;
+}
