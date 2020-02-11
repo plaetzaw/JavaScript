@@ -117,11 +117,12 @@ class Player {
   checkBust() {
     if (this.points > 21) {
       let bustMessage = document.createElement("div");
-      document.createElement("span");
-      bustMessage.classname = "alert";
+      bustMessage.className = "alert";
       bustMessage.innerHTML =
-        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>YOU BUSTED</strong>';
+        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">Play Again</span> <strong>You Busted!</strong>';
       messages0.appendChild(bustMessage);
+      hitButton.disabled = true;
+      standButton.disabled = true;
       beto.betloss();
       reseto();
     }
@@ -137,33 +138,33 @@ class Dealer {
   checkBust() {
     if (this.points > 21) {
       let bustMessage = document.createElement("div");
-      bustMessage.classname = "alert success";
+      bustMessage.className = "victory";
       bustMessage.innerHTML =
-        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> <strong>"Dealer BUSTED - You WIN!"</strong>';
-      messages.appendChild(bustMessage);
+        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">Play Again</span> <strong>Dealer Busted - You Win!</strong>';
+      messages0.appendChild(bustMessage);
       beto.betwin();
       reseto();
     } else if (this.points == player.points) {
       let bustMessage = document.createElement("div");
-      bustMessage.classname = "alert warning";
+      bustMessage.className = "tie";
       bustMessage.innerHTML =
-        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>DRAW</strong>';
+        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">Play Again</span> <strong>Draw!</strong>';
       messages0.appendChild(bustMessage);
       beto.betdraw();
       reseto();
     } else if (this.points > player.points) {
       let bustMessage = document.createElement("div");
-      bustMessage.classname = "alert";
+      bustMessage.className = "alert";
       bustMessage.innerHTML =
-        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>Dealer Wins - You Lose!</strong>';
+        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">Play Again</span> <strong>Dealer Wins!</strong>';
       messages0.appendChild(bustMessage);
       beto.betloss();
       reseto();
     } else if (this.points < player.points) {
       let bustMessage = document.createElement("div");
-      bustMessage.classname = "alert success";
+      bustMessage.className = "victory";
       bustMessage.innerHTML =
-        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>You Win!</strong>';
+        '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">Play Again</span> <strong>You Win!</strong>';
       messages0.appendChild(bustMessage);
       beto.betwin();
       reseto();
@@ -189,11 +190,15 @@ class Dealer {
 const player = new Player();
 const dealer = new Dealer();
 const deck1 = new Deck();
+hitButton.disabled = true;
+standButton.disabled = true;
 dealButton.addEventListener("click", function(e) {
   console.log(e);
   plusTen.disabled = true;
   minusTen.disabled = true;
   dealButton.disabled = true;
+  hitButton.disabled = false;
+  standButton.disabled = false;
   player.hand.push(deck1.deal());
   player.hand.push(deck1.deal());
   dealer.hand.push(deck1.deal());
@@ -246,6 +251,7 @@ standButton.addEventListener("click", function(e) {
   let facedownCard = document.querySelector("#face-down");
   facedownCard.setAttribute("src", dealer.hand[0]["imgFile"]);
   hitButton.disabled = true;
+  standButton.disabled = true;
   calculatePoints(dealer);
   calculatePoints(dealer);
   console.log(dealer.points);
@@ -311,6 +317,7 @@ function reseto() {
     minusTen.disabled = false;
     dealButton.disabled = false;
     hitButton.disabled = false;
+    standButton.disabled = false;
     deck1.reset();
     deck1.shuffle();
   });

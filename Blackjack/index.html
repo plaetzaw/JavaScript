@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bethesda Blackjack "It JUST WORKS!" - Todd Howard</title>
+    <title>Bethesda Blackjack</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -17,20 +17,24 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-
   </head>
   <body>
     <div class="board">
+      <div id="game-title">Todd Howard's Blackjack - "It Just Works!"</div>
       <div id="messages"></div>
       <label style="color: white;">Dealer: </label>
       <div class="row"></div>
       <div id="dealer-hand" class="hand"></div>
-      <label id="dealer-points" class="points" style="color: white;">Dealer Points: </label>
+      <label id="dealer-points" class="points" style="color: white;"
+        >Dealer Points:
+      </label>
 
       <label style="color:white">Player: </label>
       <div class="row"></div>
       <div id="player-hand" class="hand"></div>
-      <label id="player-points" class="points" style="color: white;">Player Points: </label>
+      <label id="player-points" class="points" style="color: white;"
+        >Player Points:
+      </label>
 
       <div class="buttons">
         <button id="deal-button">Deal</button>
@@ -43,11 +47,15 @@
         <button id="up10button">+$10</button>
 
         <button id="down10button">-$10</button>
-      </div>        
-      <label id="bet-amount">Player Bet</label>
-
-    <div class="buttons">
-      <label id="player-money">Player Money</label>
+      </div>
+      <div style="color: white">
+        Player Bet: $
+        <label id="bet-amount" style="color: white;">Player Bet</label>
+      </div>
+      <div style="color: white">
+        Player Money: $
+        <label id="player-money" style="color: white">Player Money</label>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
