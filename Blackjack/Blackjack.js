@@ -56,31 +56,55 @@ class Bet {
     this.money = 500;
     this.bet = 0;
   }
+  betwin() {
+    this.money += 2 * this.bet;
+    this.bet = 0;
+    betD.textContent = this.bet;
+    moneyD.textContent = this.money;
+  }
+  betloss() {
+    this.bet = 0;
+    betD.textContent = this.bet;
+    moneyD.textContent = this.money;
+  }
+  betdraw() {
+    this.money += this.bet;
+    this.bet = 0;
+    betD.textContent = this.bet;
+    moneyD.textContent = this.money;
+  }
 }
 
 const beto = new Bet();
 
 plusTen.addEventListener("click", function() {
-  if ((beto.bet = 0)) {
-    pass;
+  if (beto.money == 0) {
+    plusTen.disabled = true;
   } else {
     beto.bet += 10;
     beto.money -= 10;
     betD.textContent = beto.bet;
     moneyD.textContent = beto.money;
+    minusTen.disabled = false;
+    console.log(beto.bet);
   }
 });
 
 minusTen.addEventListener("click", function() {
-  if ((beto.bet = 0)) {
-    pass;
+  if (beto.bet == 0) {
+    minusTen.disabled = true;
   } else {
     beto.bet -= 10;
     beto.money += 10;
     betD.textContent = beto.bet;
     moneyD.textContent = beto.money;
+    console.log(beto.bet);
   }
 });
+
+if (beto.bet == 0) {
+  minusTen.disabled = true;
+}
 
 betD.textContent = beto.bet;
 moneyD.textContent = beto.money;
@@ -98,6 +122,7 @@ class Player {
       bustMessage.innerHTML =
         '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>YOU BUSTED</strong>';
       messages0.appendChild(bustMessage);
+      beto.betloss();
       reseto();
     }
   }
@@ -116,6 +141,7 @@ class Dealer {
       bustMessage.innerHTML =
         '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span> <strong>"Dealer BUSTED - You WIN!"</strong>';
       messages.appendChild(bustMessage);
+      beto.betwin();
       reseto();
     } else if (this.points == player.points) {
       let bustMessage = document.createElement("div");
@@ -123,6 +149,7 @@ class Dealer {
       bustMessage.innerHTML =
         '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>DRAW</strong>';
       messages0.appendChild(bustMessage);
+      beto.betdraw();
       reseto();
     } else if (this.points > player.points) {
       let bustMessage = document.createElement("div");
@@ -130,6 +157,7 @@ class Dealer {
       bustMessage.innerHTML =
         '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>Dealer Wins - You Lose!</strong>';
       messages0.appendChild(bustMessage);
+      beto.betloss();
       reseto();
     } else if (this.points < player.points) {
       let bustMessage = document.createElement("div");
@@ -137,6 +165,7 @@ class Dealer {
       bustMessage.innerHTML =
         '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>You Win!</strong>';
       messages0.appendChild(bustMessage);
+      beto.betwin();
       reseto();
     }
   }
@@ -146,6 +175,7 @@ class Dealer {
       let img = document.createElement("img");
       img.setAttribute("src", dealer.hand[dealer.hand.length - 1]["imgFile"]);
       img.setAttribute("width", "100px");
+      img.setAttribute("class", "hatch");
       dealerHandD.appendChild(img);
       calculatePoints(this);
       calculatePoints(this);
@@ -161,6 +191,9 @@ const dealer = new Dealer();
 const deck1 = new Deck();
 dealButton.addEventListener("click", function(e) {
   console.log(e);
+  plusTen.disabled = true;
+  minusTen.disabled = true;
+  dealButton.disabled = true;
   player.hand.push(deck1.deal());
   player.hand.push(deck1.deal());
   dealer.hand.push(deck1.deal());
@@ -170,13 +203,24 @@ dealButton.addEventListener("click", function(e) {
     let img = document.createElement("img");
     img.setAttribute("src", player.hand[i].imgFile);
     img.setAttribute("width", "100px");
+    img.setAttribute("class", "hatch");
     playerHandD.appendChild(img);
   }
   for (let i = 0; i < dealer.hand.length; i++) {
-    let img = document.createElement("img");
-    img.setAttribute("src", dealer.hand[i]["imgFile"]);
-    img.setAttribute("width", "100px");
-    dealerHandD.appendChild(img);
+    if (i == 0) {
+      let img = document.createElement("img");
+      img.setAttribute("src", "images/JPEG/Gray_back.jpg");
+      img.setAttribute("width", "100px");
+      img.setAttribute("class", "hatch");
+      img.setAttribute("id", "face-down");
+      dealerHandD.appendChild(img);
+    } else {
+      let img = document.createElement("img");
+      img.setAttribute("src", dealer.hand[i]["imgFile"]);
+      img.setAttribute("width", "100px");
+      img.setAttribute("class", "hatch");
+      dealerHandD.appendChild(img);
+    }
   }
   calculatePoints(player);
   console.log(player.points);
@@ -189,6 +233,7 @@ hitButton.addEventListener("click", function(e) {
   let img = document.createElement("img");
   img.setAttribute("src", player.hand[player.hand.length - 1].imgFile);
   img.setAttribute("width", "100px");
+  img.setAttribute("class", "hatch");
   playerHandD.appendChild(img);
   calculatePoints(player);
   calculatePoints(dealer);
@@ -198,6 +243,12 @@ hitButton.addEventListener("click", function(e) {
 });
 
 standButton.addEventListener("click", function(e) {
+  let facedownCard = document.querySelector("#face-down");
+  facedownCard.setAttribute("src", dealer.hand[0]["imgFile"]);
+  hitButton.disabled = true;
+  calculatePoints(dealer);
+  calculatePoints(dealer);
+  console.log(dealer.points);
   dealer.hitLogic();
 });
 
@@ -235,8 +286,10 @@ function calculatePoints(person) {
   }
   if (person == player) {
     playerPoints.textContent = person.points;
-  } else {
+  } else if (hitButton.disabled == true) {
     dealerPoints.textContent = person.points;
+  } else {
+    dealerPoints.textContent = person.hand[1]["points"];
   }
 }
 
@@ -254,6 +307,10 @@ function reseto() {
     playerPoints.innerHTML = "";
     dealerPoints.innerHTML = "";
     messages0.innerHTML = "";
+    plusTen.disabled = false;
+    minusTen.disabled = false;
+    dealButton.disabled = false;
+    hitButton.disabled = false;
     deck1.reset();
     deck1.shuffle();
   });

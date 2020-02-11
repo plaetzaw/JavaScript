@@ -1,5 +1,5 @@
 .board {
-  background-color: aquamarine;
+  background-image: url(https://cdn.hipwallpaper.com/i/46/65/hEiUkp.jpg);
   display: flex;
   justify-content: left;
   align-items: left;
@@ -7,7 +7,7 @@
 }
 
 #player-hand {
-  background-color: blue;
+  background-color: transparent;
   width: 600px;
   height: 150px;
   position: relative;
@@ -15,13 +15,21 @@
   align-items: center;
 }
 
+#player-hand img {
+  visibility: hidden;
+}
+
 #dealer-hand {
-  background-color: blue;
+  background-color: transparent;
   width: 600px;
   height: 150px;
   position: relative;
   align-content: center;
   align-items: center;
+}
+
+#dealer-hand img {
+  visibility: hidden;
 }
 
 .alert {
@@ -45,4 +53,69 @@
 /* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
+}
+
+.hatch {
+  animation-name: hatch;
+  -webkit-animation-name: hatch;
+
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+
+  transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+
+  visibility: visible !important;
+}
+
+@keyframes hatch {
+  0% {
+    transform: rotate(0deg) scaleY(0.6);
+  }
+  20% {
+    transform: rotate(-2deg) scaleY(1.05);
+  }
+  35% {
+    transform: rotate(2deg) scaleY(1);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  65% {
+    transform: rotate(1deg);
+  }
+  80% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes hatch {
+  0% {
+    -webkit-transform: rotate(0deg) scaleY(0.6);
+  }
+  20% {
+    -webkit-transform: rotate(-2deg) scaleY(1.05);
+  }
+  35% {
+    -webkit-transform: rotate(2deg) scaleY(1);
+  }
+  50% {
+    -webkit-transform: rotate(-2deg);
+  }
+  65% {
+    -webkit-transform: rotate(1deg);
+  }
+  80% {
+    -webkit-transform: rotate(-1deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
 }
