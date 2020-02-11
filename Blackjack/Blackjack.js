@@ -322,4 +322,13 @@ function reseto() {
     deck1.shuffle();
   });
 }
+
+if (beto.money == 0) {
+  let bustMessage = document.createElement("div");
+  bustMessage.className = "outofCash";
+  bustMessage.innerHTML =
+    '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">Play Again</span> <strong>You Ran Out Of Money, Goodbye</strong>';
+  messages0.appendChild(bustMessage);
+}
+
 deck1.shuffle();
