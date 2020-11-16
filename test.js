@@ -52,4 +52,37 @@ function studentGrades(array, target){
     let notFailures = array.filter(kid => kid.grade > target)
     return notFailures
 }
-console.log(studentGrades(students, 3));
+console.log(studentGrades(students, 3.2));
+
+
+function getNumber(number){
+    if (number % 3 === 0 && number % 5 === 0){
+      return "BOTH"
+    }
+    else if (number % 3 === 0){
+      return "THREE"
+    }
+    else if (number % 5 === 0){
+      return "FIVE"
+    }
+    else 
+      return number
+  };
+  
+  function getNumberRange(first, last){
+let result = []
+   if (last <= 0){
+    for (let i = first;  i >= last; i--){
+        result.push(getNumber(i));
+    }
+   return result 
+   } else { 
+   for (let i = first; i <= last; i++){
+     result.push(getNumber(i));
+   }
+   return result
+}
+  };
+
+console.log(getNumberRange(1,15));
+console.log(getNumberRange(1,-15));
