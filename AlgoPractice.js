@@ -24,4 +24,14 @@ function compareTriplets(a, b) {
     return result
     }
 
-    compareTriplets([1,2,3], [10,11,12])
+    // compareTriplets([1,2,3], [10,11,12])
+
+    function aVeryBigSum(ar){
+        let sum = 0
+        for (let i = 0; i < ar.length; i++){
+            sum += ar[i]
+        }
+        console.log(sum)
+    }
+
+    // aVeryBigSum([1,4,5,124,4325,135325])
