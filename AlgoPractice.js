@@ -35,3 +35,18 @@ function compareTriplets(a, b) {
     }
 
     // aVeryBigSum([1,4,5,124,4325,135325])
+
+    function diagonalDifference(arr) {
+        let primD = 0;
+        let secD = 0;
+        let result = 0;
+        for (let i = 0; i < arr.length; i++){
+                primD += arr[i][i] 
+                secD += arr[i][(arr.length - i) - 1]        
+        }
+                                console.log(primD, secD)
+                                 result = Math.abs(primD - secD)
+                        console.log("The RESULT IS", result)
+                        return result
+
+    }
