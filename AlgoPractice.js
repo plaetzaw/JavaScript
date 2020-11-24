@@ -63,13 +63,19 @@ function compareTriplets(a, b) {
     function timeConversion(s) {
         // If the 12 HR format has PM, we know we need to add 12 hours to the 
         // HR (1 PM => 13)
-      let checker = s.search("PM")
+      let checkerPM = s.search("PM")
       let hour = parseInt((s[0] + s[1]))
-      if (checker !== -1){
+      if (checkerPM !== -1){
           hour = hour + 12
       }
       else {
-          hour = '0' + hour
+          if (hour === 10 || hour === 11 || hour === 12){
+
+          }
+          else {
+            hour = '0' + hour
+          }
+          
       }
       let restOfTime = s.slice(2,8)
       let convertedTime = (hour + restOfTime)
@@ -78,4 +84,45 @@ function compareTriplets(a, b) {
       
     }
 
-    timeConversion('11:05:44AM')
+    // timeConversion('01:05:44AM')
+    // timeConversion('01:05:44PM')
+    // timeConversion('09:05:44AM')
+    // timeConversion('09:05:44PM')
+    // timeConversion('10:05:44AM')
+    // timeConversion('10:05:44PM')
+    // timeConversion('11:05:44AM')
+    // timeConversion('11:05:44PM')
+    // timeConversion('12:05:44AM')
+    // timeConversion('12:05:44PM')
+
+    function gradingStudents(grades){
+        let finalGrades = []
+        for (i = 0; i < grades.length; i++){
+           if (grades[i] < 37){
+               
+           }
+           if (grades[i] % 5 === 0){
+               finalGrades.push(grades[i])
+           }
+           else if ((grades[i] + 1) % 5 === 0){
+               finalGrades.push(grades[i] + 1)
+           }
+           else if ((grades[i] + 2) % 5 === 0){
+                finalGrades.push(grades[i] + 2)
+           }
+           else {
+               finalGrades.push(grades[i])
+           }
+        }
+        console.log(finalGrades)
+    }
+
+gradingStudents([4, 73, 67, 38, 33,])
+
+    // if (grades[i] < 40){
+    //     finalGrades.push(grades[i])
+    // }
+    // // else if (((grades[i] + 2) % 5 === 0) || ((grades[i] + 1) % 5 === 0))
+    // {
+    //     finalGrades.push(grades)
+    // }
