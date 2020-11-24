@@ -97,24 +97,26 @@ function compareTriplets(a, b) {
 
     function gradingStudents(grades){
         let finalGrades = []
-        for (i = 0; i < grades.length; i++){
-           if (grades[i] < 37){
-               
+        for (let i = 0; i < grades.length; i++){
+           if (grades[i] > 37){
+                if (grades[i] % 5 === 0){
+                finalGrades.push(grades[i])
+            }
+                else if ((grades[i] + 1) % 5 === 0){
+                finalGrades.push(grades[i] + 1)
+            }
+                else if ((grades[i] + 2) % 5 === 0){
+                 finalGrades.push(grades[i] + 2)
            }
-           if (grades[i] % 5 === 0){
-               finalGrades.push(grades[i])
-           }
-           else if ((grades[i] + 1) % 5 === 0){
-               finalGrades.push(grades[i] + 1)
-           }
-           else if ((grades[i] + 2) % 5 === 0){
-                finalGrades.push(grades[i] + 2)
-           }
-           else {
-               finalGrades.push(grades[i])
-           }
+                 else {
+                 finalGrades.push(grades[i])
         }
-        console.log(finalGrades)
+        }
+        else {
+            finalGrades.push(grades[i])
+        }    
+        }
+        return finalGrades 
     }
 
 gradingStudents([4, 73, 67, 38, 33,])
