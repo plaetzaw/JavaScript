@@ -50,3 +50,32 @@ function compareTriplets(a, b) {
                         return result
 
     }
+
+    function simpleArraySum(ar) {
+        let result = 0
+       for (let i = 0; i < ar.length; i++){
+           result += arr[i]
+       }
+    
+    }
+
+
+    function timeConversion(s) {
+        // If the 12 HR format has PM, we know we need to add 12 hours to the 
+        // HR (1 PM => 13)
+      let checker = s.search("PM")
+      let hour = parseInt((s[0] + s[1]))
+      if (checker !== -1){
+          hour = hour + 12
+      }
+      else {
+          hour = '0' + hour
+      }
+      let restOfTime = s.slice(2,8)
+      let convertedTime = (hour + restOfTime)
+      console.log(convertedTime)
+      return(convertedTime)
+      
+    }
+
+    timeConversion('11:05:44AM')

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="1"
+      style="background-color: yellow; height: 300px; width: 100%;"
+      
+     >Digital Crafts </div>   </div>
+    <script>
+    
+let divNode = document.getElementById("1");
+
+divNode.addEventListener("mouseover", function(e){
+console.log(e);
+divNode.setAttribute('style', "background-color: pink; height: 300px; width: 100%;")
+})
+
+// divNode.addEventListener("click", function(e){
+// console.log(e);
+// alert('Hello u stinky alien' + e.srcElement.innerText)
+// })
+
+
+
+
+// divNode.onClick = function(){
+// window.alert("Hello World")
+//     }
+    
+// divNode.onmouseover = function(){
+//     divNode.setAttribute("style", "background-color: green; height: 300px; width 100%;")
+// }
+
+// divNode.onmouseout = function(){
+//     divNode.setAttribute("style", "background-color: yellow; height: 300px; width 100%;")
+// }
+
+
+
+    // function changeBackground(){
+    //     let divNode = document.getElementById("1")
+    //     divNode.
+    //     divNode.setAttribute("style", "background-color: green; height: 300px; width 100%;")
+    //     }
+    //     function restoreBackground(){
+    //         let divNode = document.getElementById("1")
+    //     divNode.setAttribute("style", "background-color: yellow; height: 300px; width 100%;")
+    //     }
+    <script
+  src="http://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  </script>
+  </body>
+</html>
