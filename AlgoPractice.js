@@ -95,36 +95,72 @@ function compareTriplets(a, b) {
     // timeConversion('12:05:44AM')
     // timeConversion('12:05:44PM')
 
-    function gradingStudents(grades){
-        let finalGrades = []
-        for (let i = 0; i < grades.length; i++){
-           if (grades[i] > 37){
-                if (grades[i] % 5 === 0){
-                finalGrades.push(grades[i])
-            }
-                else if ((grades[i] + 1) % 5 === 0){
-                finalGrades.push(grades[i] + 1)
-            }
-                else if ((grades[i] + 2) % 5 === 0){
-                 finalGrades.push(grades[i] + 2)
-           }
-                 else {
-                 finalGrades.push(grades[i])
-        }
-        }
-        else {
+//     function gradingStudents(grades){
+//         let finalGrades = []
+//         for (let i = 0; i < grades.length; i++){
+//             switch(grades){
+//                 case (grades[i] < 37):
+//                     finalGrades.push(grades[i])
+//                     break;
+//                 case ((grades[i] % 5 + 1) === 0):
+//                     finalGrades.push(grades[i] + 1)
+//                     break;
+//                 case ((grades[i] % 5 + 2) === 0):
+//                     finalGrades.push(grades[i] + 2)
+//                     break;
+//                 default:
+//                     finalGrades.push(grades[i])
+//             }
+//         }
+//         console.log(finalGrades)
+//     }
+
+// gradingStudents([4, 73, 67, 38, 33,])
+
+
+function gradingStudents(grades){
+    let finalGrades = []
+    for (let i = 0; i < grades.length; i++){
+       if (grades[i] > 37){
+            if (grades[i] % 5 === 0){
             finalGrades.push(grades[i])
-        }    
         }
-        return finalGrades 
+            else if ((grades[i] + 1) % 5 === 0){
+            finalGrades.push(grades[i] + 1)
+        }
+            else if ((grades[i] + 2) % 5 === 0){
+             finalGrades.push(grades[i] + 2)
+       }
+             else {
+             finalGrades.push(grades[i])
     }
+    }
+    else {
+        finalGrades.push(grades[i])
+    }    
+    }
+    return finalGrades 
+}
 
-gradingStudents([4, 73, 67, 38, 33,])
+// gradingStudents([4, 73, 67, 38, 33,])
 
-    // if (grades[i] < 40){
-    //     finalGrades.push(grades[i])
-    // }
-    // // else if (((grades[i] + 2) % 5 === 0) || ((grades[i] + 1) % 5 === 0))
-    // {
-    //     finalGrades.push(grades)
-    // }
+function breakingRecords(scores){
+    let highScoreCount = 0;
+    let lowScoreCount = 0;
+    let highScore = scores[0];
+    let lowScore = scores[0];
+    for (let i = 0; i < scores.length; i++){
+        if (scores[i] > highScore){
+            highScoreCount++
+            highScore = scores[i]
+        }
+        if (scores[i] < lowScore){
+            lowScoreCount++
+            lowScore = scores[i]
+        }
+    }
+    return(highScoreCount, lowScoreCount)
+
+}
+
+breakingRecords([4, 15, 23, 4, 3, 25, 33, 19, 21, 33, 40])
