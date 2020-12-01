@@ -188,3 +188,25 @@ function dayOfProgrammer(year) {
 dayOfProgrammer(1918)
 dayOfProgrammer(1990)
 dayOfProgrammer(2003)
+
+
+// function findDupes(array){
+//     let dupes = [];
+//     for (let i = 0; i < array.length; i++){
+//            dupes = [...new Set(array)]
+//            // dupes.push(array[i])
+//     }
+//     console.log(dupes)
+// }
+
+function findDupes(array){
+    let noDupesHere = [...new Set(array)]
+    console.log(noDupesHere)
+}
+
+findDupes([1,1,1,3,4,5,6,6,8])
+
+let chars = ['A', 'B', 'A', 'C', 'B'];
+let uniqueChars = [...new Set(chars)];
+
+console.log(uniqueChars);
